@@ -3,9 +3,7 @@
 
 <h6>Team Member:</h6>
 
-   + Trương Hoàng Khang - 16520570
-   + Lưu Hoàng Hiệp	- 16520579
-   + Nguyễn Lê Hoài Ân - 16520011 
+   + 
 
 <h5>Process: &nbsp 90%</h5> 
 <h5>Shop API: Private </br> React Native version: 0.57.1</h5>
