@@ -16,7 +16,7 @@ const instructions = Platform.select({
 
 
 const args = {
-  number: '16520570', // String value with the number to call
+  number: '16520543', // String value with the number to call
   prompt: false // Optional boolean property. Determines if the user should be prompt prior to the call 
 }
 
@@ -120,8 +120,8 @@ export default class App extends Component {
           buttonStyle={{backgroundColor: '#ff4f00', borderRadius: 0,width: width, flexWrap: 'wrap'}}
 
           textStyle={{textAlign: 'right'}}
-          onPress={() => Linking.openURL('mailto:16520570@gm.uit.edu.vn')}
-          title={`16520570@gm.uit.edu.vn`}
+          onPress={() => Linking.openURL('mailto:16520543@gm.uit.edu.vn')}
+          title={`165205430@gm.uit.edu.vn`}
         />
 
 

@@ -92,14 +92,14 @@ export default createBottomTabNavigator({
                                 size={24}/>)
         }    
     },
-    Info: { screen: ContactInfo, 
-        navigationOptions:{
-            tabBarIcon:({tintColor})=>(<Ionicons  
-                                name={Platform.OS === "ios" ? "ios-call" : "md-call"} 
-                                color ={tintColor}
-                                size={24}/>)
-        }    
-    }
+    // Info: { screen: ContactInfo, 
+    //     navigationOptions:{
+    //         tabBarIcon:({tintColor})=>(<Ionicons  
+    //                             name={Platform.OS === "ios" ? "ios-call" : "md-call"} 
+    //                             color ={tintColor}
+    //                             size={24}/>)
+    //     }    
+    // }
   
 },
   {

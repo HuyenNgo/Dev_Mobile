@@ -33,10 +33,13 @@ class TopProduct extends React.Component{
                       });
                 }}
             >
-                <View style={styles.itemContainer}>
-                <Image source={{uri:item.Image}} style={styles.imgItem}/> 
-                <Text style={{flex:1}}>{item.Name}</Text> 
-                <Text style={{flex:1}}>Giá: {item.Price}</Text>                
+                <View //style={styles.itemContainer}
+                >
+                <Image source={{uri:item.Image}} 
+                // style={styles.imgItem}
+                /> 
+                <Text style={{color:'red'}}>{item.Name}</Text> 
+                <Text style={{marginTop:'15%'}}>Giá: {item.Price}</Text>                
             </View>
             </TouchableOpacity>
         );
@@ -72,11 +75,17 @@ class TopProduct extends React.Component{
 
     render(){
         return(
-            <View style = {styles.wrapper}>
-                <View style = {styles.textContainer} >
+            <View 
+           // style = {styles.wrapper}
+            >
+                <View 
+                //style = {styles.textContainer}
+                 >
                     <Text style= {styles.textTopProduct}> Top Product </Text>
                 </View>
-                <View style = {styles.body}>
+                <View
+                 //style = {styles.body}
+                 >
                     <FlatList
                         data = {this.state.data}
                         keyExtractor = {(item, index)=> index.toString()}
@@ -99,7 +108,7 @@ const styles = StyleSheet.create({
     },
     textContainer:{
         justifyContent :'center', 
-        shadowColor: '#2E272B',
+       // shadowColor: '#2E272B',
         shadowOffset : {
             width: 0,
             height: 3,
@@ -111,7 +120,7 @@ const styles = StyleSheet.create({
         flexDirection: 'column',
         alignItems: 'stretch',
         flexWrap: 'wrap',
-        shadowColor: '#2E272B',
+       // shadowColor: '#2E272B',
         shadowOffset : {
             width: 0,
             height: 3,
@@ -119,16 +128,19 @@ const styles = StyleSheet.create({
     },
     textTopProduct: {
         fontSize: 20,
-        color : 'black'
+       color : 'red',
+        marginBottom:10
     },
     itemContainer:{
         marginBottom: 10,
         shadowOpacity: 0.2,
-        marginLeft: 20,
-        marginRight: 20,
-        flex: 1,
-        alignItems: 'center',
-        justifyContent: 'center',
+       // marginLeft: 20,
+       // marginRight: 20,
+      //  marginTop:10,
+      //  flex: 1,
+      flexDirection:'column',
+       // alignItems: 'center',
+        //justifyContent: 'center',
       },
       imgItem:{
         width: 300,///window.width/2-20,
