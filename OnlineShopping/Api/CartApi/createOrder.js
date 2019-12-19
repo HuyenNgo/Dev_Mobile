@@ -11,14 +11,8 @@ let url = getUrl() + 'shoppingcart/createcart';
         listcart: JSON.stringify(listcart),
     }
     
-//console.log(params);
-//  return  axios.post(url, params, {
-//         headers: {
-//             'Content-Type': 'application/json',
-//         }
-//     }).then(res => {
-//         return res
-//     }); 
+console.log(params);
+ 
 return axios({
         url: url,
         method: 'post',

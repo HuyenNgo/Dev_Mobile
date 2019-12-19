@@ -75,9 +75,10 @@ export default Collection
 
 const styles = StyleSheet.create({
     wrapper :{
-        backgroundColor : 'rgb(233,233,238)',
+       // backgroundColor : 'rgb(233,233,238)',
         shadowOpacity: 0.2,
-        borderRadius: 3
+        borderRadius: 3,
+       
     },
     textContainer:{
         justifyContent :'center', 

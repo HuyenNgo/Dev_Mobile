@@ -65,16 +65,15 @@ export default class Home extends Component {
                     <AuthStack />
                 }
             >
-
-
                 <Header
                     placement="left"
                     leftComponent={<MIcon name='menu' onPress={() => { this.openControlPanel() }} style={{ color: 'white' }} size={25} />}
                     centerComponent={{ text: 'HOME', style: { color: '#fff' } }}
                     rightComponent={{ icon: 'home', color: '#fff' }}
-                    backgroundColor='#fff'
+                    backgroundColor='black'
                 />
-                <SafeAreaView style={{ flex: 1, backgroundColor: 'black', paddingTop: '5%' }}>
+              
+                <SafeAreaView style={{ flex: 1, backgroundColor: 'transparent', paddingTop: '5%' }}>
                     <ScrollView
                         refreshControl={
                             <RefreshControl
@@ -84,9 +83,15 @@ export default class Home extends Component {
                         }
                         style={{ backgroundColor: 'rgb(233,233,238)' }}
                     >
-                        <Collection {...this.props} />
+                         <View style={styles.containter}>
+                          <Collection {...this.props} />
+                          </View>
+                          <View style={styles.containter}>
                         <TopProduct {...this.props} />
+                        </View>
+                        <View style={styles.containter}>
                         <LastedProduct {...this.props} />
+                        </View>
 
                     </ScrollView>
                 </SafeAreaView>
@@ -94,3 +99,16 @@ export default class Home extends Component {
         );
     }
 }
+
+const styles=StyleSheet.create (
+
+    {
+
+        containter:
+        {
+            backgroundColor:'#fff',
+            margin:3
+
+        }
+    }
+)
