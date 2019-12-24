@@ -59,10 +59,10 @@ class User extends Component {
           <SafeAreaView style = {{flex: 1}}>
             <View style={{flex: 1, backgroundColor: COLOR_THEME}}>
               <ScrollView style={{flex: 1}}>
-                <View style={{ justifyContent: 'center', alignItems: 'center' }}>
+                <View style={{ justifyContent: 'center', alignItems: 'center',paddingTop:'5%' }}>
                   <Image
-                    source={{ uri: 'https://static.pexels.com/photos/428336/pexels-photo-428336.jpeg' }}
-                    style={{ width: IMAGE_SIZE, height: IMAGE_SIZE, borderRadius: 10}}
+                    source={{ uri: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRAYSkEgcet5sYxF-s7VR3Xgnm8zrDpSLP7_HLf6dIZHQd4yFXZvQ&s' }}
+                    style={{ width: 150, height: 150, borderRadius: 200/2,resizeMode:'stretch'}}
                   />
                 </View>
                 <View style={{flex: 1, marginTop: 20, justifyContent: 'center', alignItems: 'center'}}>

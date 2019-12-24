@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { View, Text, StyleSheet, Image, FlatList, SafeAreaView } from 'react-native';
-import { Button } from 'react-native-elements'
+import { Button ,Icon} from 'react-native-elements'
 import FAIcon from 'react-native-vector-icons/FontAwesome'
 
 import getCart from '../../../Api/CartApi/getCart'
@@ -192,6 +192,15 @@ export default class Cart extends Component {
                     }
                 />
                 <Button
+                icon={
+                    <Icon
+                    name='keyboard-arrow-right'
+                    color='#fff'
+                    style={{marginLeft:10}}
+
+                    />
+                }
+                     iconRight
                     title="TIẾN HÀNH THANH TOÁN"
                     titleStyle={{ fontWeight: "500" }}
                     buttonStyle={styles.btnPayment}

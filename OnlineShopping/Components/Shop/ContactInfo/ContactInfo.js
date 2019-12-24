@@ -2,8 +2,8 @@
 import call from 'react-native-phone-call'
 import React, {Component} from 'react';
 import {Linking, Alert, AppRegistry,Platform, StyleSheet, Text, View,Dimensions} from 'react-native';
-import MapView from 'react-native-maps';
-import { Marker } from 'react-native-maps';
+//import MapView from 'react-native-maps';
+//import { Marker } from 'react-native-maps';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { Button,Header } from 'react-native-elements';
 
@@ -46,7 +46,7 @@ export default class App extends Component {
     return (
       <View style={{flex:1,backgroundColor:'#E9E9EF'}} >
           <Header         
-                        placement="left"  
+                        placement="center"  
                         centerComponent={{ text: 'Contact Us', style: { color: '#fff' } }}
                         backgroundColor='black'
                     />
@@ -60,12 +60,12 @@ export default class App extends Component {
             }}
           />
 
-          <MapView
+          {/* <MapView
             style={{flex:0.9}}
             region={this.state.region}
           >
             <MapView.Marker title={'This Is Our Shop'} coordinate = {this.state.region}/>
-          </MapView>
+          </MapView> */}
           <View style={styles.instructions} >
 
           <View
@@ -77,13 +77,14 @@ export default class App extends Component {
 
           <Button
  
-          icon={{name: 'home', size: 32}}
+          icon={{name: 'home', size: 30}}
 
-          buttonStyle={{backgroundColor: '#ff4f00', borderRadius: 0,width: width, flexWrap: 'wrap'}}
+          buttonStyle={{backgroundColor: '#22A5F1', marginBottom:10,borderRadius: 0,width: width, flexWrap: 'wrap'}}
 
           textStyle={{textAlign: 'right'}}
           onPress={() =>Linking.openURL('https://www.google.com/maps/place/Tr%C6%B0%E1%BB%9Dng+%C4%90%E1%BA%A1i+h%E1%BB%8Dc+C%C3%B4ng+ngh%E1%BB%87+Th%C3%B4ng+tin+%C4%90HQG-HCM/@10.8686102,106.7979616,17z/data=!4m13!1m7!3m6!1s0x31752766e791a68d:0xe4f6a1ac07ae6952!2zNTEgxJDGsOG7nW5nIHPhu5EgMTgsIFBoxrDhu51uZyBMaW5oIFRydW5nLCBUaOG7pyDEkOG7qWMsIEjhu5MgQ2jDrSBNaW5oLCBWaeG7h3QgTmFt!3b1!8m2!3d10.8644167!4d106.7906767!3m4!1s0x317527587e9ad5bf:0xafa66f9c8be3c91!8m2!3d10.8702111!4d106.8028928')}
           title={`Quarter 6, Linh Trung ward, Thu Duc district`}
+          
         />
    
           <View
@@ -95,15 +96,15 @@ export default class App extends Component {
 
           <Button
 
-          icon={{name: 'phone', size: 32}}
+          icon={{name: 'phone', size: 30}}
 
-          buttonStyle={{backgroundColor: '#ff4f00', borderRadius: 0,width: width, flexWrap: 'wrap'}}
+          buttonStyle={{backgroundColor: '#22A5F1', marginBottom:10,borderRadius: 0,width: width, flexWrap: 'wrap'}}
 
           textStyle={{textAlign: 'right'}}
           onPress={() => {
                         call(args).catch(console.error);
                     }}
-          title={`016520570`}
+          title={`016520543`}
           />
 
           <View
@@ -115,9 +116,9 @@ export default class App extends Component {
 
           <Button
     
-          icon={{name: 'mail', size: 32}}
+          icon={{name: 'mail', size: 30}}
 
-          buttonStyle={{backgroundColor: '#ff4f00', borderRadius: 0,width: width, flexWrap: 'wrap'}}
+          buttonStyle={{backgroundColor: '#22A5F1',marginBottom:10, borderRadius: 0,width: width, flexWrap: 'wrap'}}
 
           textStyle={{textAlign: 'right'}}
           onPress={() => Linking.openURL('mailto:16520543@gm.uit.edu.vn')}

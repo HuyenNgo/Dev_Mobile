@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
-import { TextInput, FlatList, StyleSheet, View, Button, SafeAreaView, Image, TouchableOpacity, Text, ScrollView, Alert } from 'react-native'
+import { TextInput, FlatList, StyleSheet, View, SafeAreaView, Image, TouchableOpacity, Text, ScrollView, Alert } from 'react-native'
 import { AutoGrowingTextInput } from 'react-native-autogrow-textinput';
 import NumberFormat from 'react-number-format';
 import { Input, Item, Label } from 'native-base';
 
+import { Button } from 'react-native-elements'
 import orderCard from '../../../Api/CartApi/orderCard'
 import createOrder from './../../../Api/CartApi/createOrder'
 import saveCart from '../../../Api/CartApi/saveCart';
@@ -137,7 +138,8 @@ class CheckOrder extends Component {
                 <View style={styles.Itemcontainer}>
                     <View>
                         <Image
-                            resizeMode='contain'
+
+                            resizeMode="stretch"
                             style={{
                                 flex: 1,
                                 alignSelf: 'stretch',
@@ -159,20 +161,20 @@ class CheckOrder extends Component {
                                 {item.Name}
                             </Text>
                         </View>
-                        <View>
-                            <Text>Số lượng: {item.Quantity}</Text>
+                        <View style={{ paddingTop: '5%' }}>
+                            <Text style={{ fontSize: 16 }}>Số lượng: {item.Quantity}</Text>
                         </View>
-                        <View style={styles.nameCategory}>
+                        <View  >
                             <NumberFormat
                                 value={item.Price}
                                 displayType={'text'}
                                 thousandSeparator={true}
 
                                 renderText={value =>
-                                    <View style={{ flexDirection: 'row', marginTop: 10, justifyContent: 'flex-start' }}>
-                                        <Text style={{ paddingTop: '10%', fontSize: 15 }}>Giá: </Text>
+                                    <View style={{ flexDirection: 'row', justifyContent: 'flex-start' }}>
+                                        <Text style={{ paddingTop: '5%', fontSize: 16 }}>Giá: </Text>
                                         <Input
-                                            style={{ color: 'red', fontSize: 15 }}
+                                            style={{ color: 'red', fontSize: 16, paddingTop: '7%' }}
                                             value={value}
                                             keyboardType="numeric"
                                         />
@@ -204,9 +206,8 @@ class CheckOrder extends Component {
                                     value={this.state.textValue}
                                     onChange={(text) => this._onChangeName(text)}
                                     style={styles.textInput}
-                                    placeholder={'Enter your name'}
-                                    placeholderTextColor='#66737C'
-
+                                    //  placeholder={'Enter your name'}
+                                    //  placeholderTextColor='#66737C'
                                     maxHeight={200}
                                     minHeight={30}
                                     enableScrollToCaret
@@ -220,8 +221,8 @@ class CheckOrder extends Component {
                                     value={this.state.textValue}
                                     onChange={(text) => this._onChangePhoneNumber(text)}
                                     style={styles.textInput}
-                                    placeholder={'Enter your phone number'}
-                                    placeholderTextColor='#66737C'
+                                    //   placeholder={'Enter your phone number'}
+                                    //  placeholderTextColor='#66737C'
                                     maxHeight={200}
                                     minHeight={30}
                                     enableScrollToCaret
@@ -237,8 +238,8 @@ class CheckOrder extends Component {
                                     value={this.state.textValue}
                                     onChange={(text) => this._onChangeAddress(text)}
                                     style={styles.textInput}
-                                    placeholder={'Enter your Address'}
-                                    placeholderTextColor='#66737C'
+                                    //placeholder={'Enter your Address'}
+                                    // placeholderTextColor='#66737C'
                                     maxHeight={200}
                                     minHeight={30}
                                     enableScrollToCaret
@@ -246,51 +247,96 @@ class CheckOrder extends Component {
                                 />
                             </View>
                         </View>
-                        <Text style={{ fontSize: 20, fontWeight: '500', marginBottom: 5, paddingLeft: '2%' }}>Sản phẩm đã chọn</Text>
-                        <FlatList
-                            data={this.state.data}
-                            keyExtractor={(item, index) => index.toString()}
-                            renderItem={this.renderItem}
-                        />
+                        <View style={styles.input2}>
+                            <Text style={{ fontSize: 20, fontWeight: '500', marginBottom: 5, paddingLeft: '2%', paddingTop: '5%' }}>Sản phẩm đã chọn</Text>
+                            <FlatList
+                                data={this.state.data}
+                                keyExtractor={(item, index) => index.toString()}
+                                renderItem={this.renderItem}
+                            />
+                        </View>
+                        <View style={{ backgroundColor: '#fff', margin: 5, flexDirection: 'row' }}>
 
-                        <View style={{ backgroundColor: '#fff', margin: 5 }}>
-                            <View style={stylesCount.row}>
-                                <View style={stylesCount.titleStyle}>
-                                    <Text style={stylesCount.fontStyle}>Số lượng sản phẩm: </Text>
+                            <View style={{ flexDirection: 'column' ,paddingLeft:'5%'}}>
+                                <View style={stylesCount.row}>
+                                    <View style={stylesCount.titleStyle}>
+                                        <Text style={stylesCount.fontStyle}>Số lượng sản phẩm: </Text>
+                                    </View>
+                                    <Text style={[stylesCount.valueStyle, stylesCount.fontStyle]}>{this.state.count} </Text>
                                 </View>
-                                <Text style={[stylesCount.valueStyle, stylesCount.fontStyle]}>{this.state.count} </Text>
-                            </View>
-                            <View style={stylesCount.row}>
-                                <View style={stylesCount.titleStyle}>
-                                    <Text style={stylesCount.fontStyle}>Số tiền: </Text>
+                                <View style={stylesCount.row}>
+                                    <View style={stylesCount.titleStyle}>
+                                        <Text style={stylesCount.fontStyle}>Số tiền: </Text>
+                                    </View>
+                                    {/* <Text style={[stylesCount.valueStyle, stylesCount.fontStyle]}>{this.state.price}</Text> */}
+                                    <NumberFormat
+                                        value={this.state.price}
+                                        displayType={'text'}
+                                        thousandSeparator={true}
+
+                                        renderText={value =>
+                                            <View style={{paddingTop:'1%'}}>
+                                               
+                                                <Input
+                                                    style={{ color: 'red', fontSize: 16 }}
+                                                    value={value}
+                                                    keyboardType="numeric"
+                                                />
+                                                {/* // <Text style={{paddingTop:'11%',fontSize:15,fontWeight:'300'}}>(VNĐ)</Text> */}
+                                            </View>
+                                        }
+                                    />
                                 </View>
-                                <Text style={[stylesCount.valueStyle, stylesCount.fontStyle]}>{this.state.price}</Text>
-                            </View>
-                            <View style={stylesCount.row}>
-                                <View style={stylesCount.titleStyle}>
-                                    <Text style={stylesCount.fontStyle}>Giảm giá: </Text>
+                                <View style={stylesCount.row}>
+                                    <View style={stylesCount.titleStyle}>
+                                        <Text style={stylesCount.fontStyle1}>Giảm giá: </Text>
+                                    </View>
+                                    <Text style={[stylesCount.valueStyle, stylesCount.fontStyle1]}>{this.state.discount}</Text>
                                 </View>
-                                <Text style={[stylesCount.valueStyle, stylesCount.fontStyle]}>{this.state.discount}</Text>
-                            </View>
-                            <View style={stylesCount.row}>
-                                <View style={stylesCount.titleStyle}>
-                                    <Text style={stylesCount.fontStyle}>Tổng tiền: </Text>
+                                <View style={stylesCount.row}>
+                                    <View style={stylesCount.titleStyle}>
+                                        <Text style={stylesCount.fontStyle}>Tổng tiền: </Text>
+                                    </View>
+                                    {/* <Text style={[stylesCount.valueStyle, stylesCount.fontStyle]}>{this.state.price - this.state.discount}</Text> */}
+
+                                    <NumberFormat
+                                        value={this.state.price - this.state.discount}
+                                        displayType={'text'}
+                                        thousandSeparator={true}
+
+                                        renderText={value =>
+                                            <View  style={{paddingTop:'1%'}}>
+                                               
+                                                <Input
+                                                    style={{ color: 'red', fontSize: 16 }}
+                                                    value={value}
+                                                    keyboardType="numeric"
+                                                />
+                                                {/* // <Text style={{paddingTop:'11%',fontSize:15,fontWeight:'300'}}>(VNĐ)</Text> */}
+                                            </View>
+                                        }
+                                    />
+
+
                                 </View>
-                                <Text style={[stylesCount.valueStyle, stylesCount.fontStyle]}>{this.state.price - this.state.discount}</Text>
+
                             </View>
+
+                            <Button
+                                title='Đặt hàng'
+                                titleStyle={{ color: '#fff' }}
+                                buttonStyle={{ width: 120, height: 40, backgroundColor: 'red', marginLeft: 40, marginTop: 120 }}
+                                onPress={this.sendData}
+                            />
+
+
+
                         </View>
                         <View style={{ height: 10 }} />
 
 
 
-                        <View style={{ justifyContent: 'flex-end', alignItems: 'center' }}>
-                            <TouchableOpacity
-                                style={styles.buttonStyle}
-                                onPress={this.sendData}
-                            >
-                                <Text style={{ fontSize: 20, fontWeight: 'bold' }}>Đặt hàng</Text>
-                            </TouchableOpacity>
-                        </View>
+
                     </View>
                 </ScrollView>
             </SafeAreaView>
@@ -308,7 +354,7 @@ const styles = StyleSheet.create({
     },
     textInput: {
         paddingLeft: 5,
-        fontSize: 13,
+        fontSize: 10,
         flex: 1,
         backgroundColor: 'white',
         borderWidth: 0,
@@ -316,9 +362,10 @@ const styles = StyleSheet.create({
     },
 
     input2: {
-
+        marginTop: 4,
         backgroundColor: '#fff',
         margin: 5,
+
         flexDirection: 'column'
     },
     textInput: {
@@ -338,19 +385,22 @@ const styles = StyleSheet.create({
     Itemcontainer: {
         flex: 1,
         flexDirection: 'row',
-        //backgroundColor: 'red',
+      //  backgroundColor: '#E4E4E4',
         margin: 5,
-        borderRadius: 5
+        borderRadius: 5,
+        marginBottom: 10
     },
     ItemInfo: {
         flexDirection: 'column',
-        justifyContent: 'space-around'
+        justifyContent: 'space-around',
+        paddingLeft: '3%',
+       
     },
     viewStyle:
     {
 
         flexDirection: 'row',
-        borderBottomColor: 'black',
+        borderBottomColor: 'blue',
         borderBottomWidth: 1,
         marginBottom: 5
     }
@@ -359,19 +409,26 @@ const styles = StyleSheet.create({
 
 const stylesCount = StyleSheet.create({
     row: {
-        flex: 1,
+
         flexDirection: 'row',
     },
     fontStyle: {
-        fontSize: 15,
+        fontSize: 16,
+        fontWeight: '500',
+        paddingTop:'5%'
+    },
+    fontStyle1: {
+        fontSize: 16,
+        fontWeight: '500',
+        paddingTop:'1%'
     },
     titleStyle: {
-        flex: 1,
+
         flexDirection: 'column',
         alignItems: 'flex-end',
     },
     valueStyle: {
-        flex: 1,
+
     }
 })
 

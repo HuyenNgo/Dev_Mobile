@@ -163,7 +163,7 @@ const CartStack = createStackNavigator({
            
             headerStyle: {
                 backgroundColor: '#fff',
-                borderColor: 'black',
+                borderColor: '#CCCCCC',
                 borderBottomWidth:1,
                 color:'#fff'
 

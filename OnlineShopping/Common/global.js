@@ -3,7 +3,7 @@ module.exports = {
     incrQuantity: null,
     decrQuantity: null,
     removeProduct: null,
-    auth: false,
-    FlagWishList:false,
+    auth: true,
+    FlagWishList:true,
     displayName:'empty'
 }
