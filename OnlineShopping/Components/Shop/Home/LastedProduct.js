@@ -75,13 +75,13 @@ class LastedProduct extends React.Component {
                     <Text style={styles.textLastedProduct}> Lasted Product </Text>
                 </View>
                 <Swiper
-                    height={250}
+                    height={200}
                     loop={false}
                     loadMinimal={false}
                     style={styles.body}
                     dot={<View style={{ backgroundColor: 'rgba(0,0,0,.2)', width: 5, height: 5, borderRadius: 4, marginLeft: 3, marginRight: 3, marginTop: 3, marginBottom: 3 }} />}
                     activeDot={<View style={{ backgroundColor: '#000', width: 8, height: 8, borderRadius: 4, marginLeft: 3, marginRight: 3, marginTop: 3, marginBottom: 3 }} />}
-                    paginationStyle={{ bottom: -1, }}
+                    paginationStyle={{ bottom: 1, }}
                 >
                     {
                         this.state.data.map((item, i) => {

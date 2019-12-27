@@ -44,21 +44,22 @@ export default class App extends Component {
 
   render() {
     return (
-      <View style={{flex:1,backgroundColor:'#E9E9EF'}} >
+      <View style={{backgroundColor:'#E9E9EF'}} >
           <Header         
                         placement="center"  
-                        centerComponent={{ text: 'Contact Us', style: { color: '#fff' } }}
-                        backgroundColor='black'
+                        centerComponent={{ text: 'Contact Us', style: { color: '#fff',marginBottom:15,fontSize:20} }}
+                        backgroundColor='#FF5722'
+                        containerStyle={{height:70,}}
                     />
 
-          <View
+          {/* <View
             style={{
               borderBottomColor: 'white',
               borderBottomWidth: 5,
               borderWidth:1,
               marginBottom:10
             }}
-          />
+          /> */}
 
           {/* <MapView
             style={{flex:0.9}}
@@ -84,7 +85,7 @@ export default class App extends Component {
           textStyle={{textAlign: 'right'}}
           onPress={() =>Linking.openURL('https://www.google.com/maps/place/Tr%C6%B0%E1%BB%9Dng+%C4%90%E1%BA%A1i+h%E1%BB%8Dc+C%C3%B4ng+ngh%E1%BB%87+Th%C3%B4ng+tin+%C4%90HQG-HCM/@10.8686102,106.7979616,17z/data=!4m13!1m7!3m6!1s0x31752766e791a68d:0xe4f6a1ac07ae6952!2zNTEgxJDGsOG7nW5nIHPhu5EgMTgsIFBoxrDhu51uZyBMaW5oIFRydW5nLCBUaOG7pyDEkOG7qWMsIEjhu5MgQ2jDrSBNaW5oLCBWaeG7h3QgTmFt!3b1!8m2!3d10.8644167!4d106.7906767!3m4!1s0x317527587e9ad5bf:0xafa66f9c8be3c91!8m2!3d10.8702111!4d106.8028928')}
           title={`Quarter 6, Linh Trung ward, Thu Duc district`}
-          
+          type="clear" 
         />
    
           <View
@@ -152,8 +153,10 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     textAlign: 'left',
     color: '#333333',
-    marginLeft:0,
-    marginBottom: 0,
+    marginLeft:5,
+    marginRight:5,
+    paddingTop:'10%',
+    padding:'5%'
   },
   bottomView:{
     width: '100%', 

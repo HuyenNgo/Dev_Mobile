@@ -240,7 +240,7 @@ export default class Cart extends Component {
 
                                 renderText={value =>
                                     <View style={{ flexDirection: 'row', justifyContent: 'flex-start',paddingLeft:'12%',paddingBottom:'2%' }}>
-                                        <Text style={{ paddingTop:'5%',fontSize: 15 }}>Giá: </Text>
+                                        <Text style={{ paddingTop:'5%',fontSize: 15 ,paddingTop:'6%'}}>Giá: </Text>
                                         <Input
                                             style={{ color: 'red', fontSize: 15 }}
                                             value={value}
@@ -283,7 +283,7 @@ const styles = StyleSheet.create({
         marginBottom: 5,
         marginLeft: 5,
         marginRight: 5,
-        height: 120,//window.height/4,
+        height: 150,//window.height/4,
         backgroundColor: '#FFF',
         flexDirection: 'row',
         justifyContent: 'center',
@@ -316,11 +316,13 @@ const styles = StyleSheet.create({
     },
     contentMiddle: {
         flex: 2,
+        
         flexDirection: 'column',
         alignItems: 'center'
     },
     contentBottom: {
         flex: 1,
+        paddingTop:'8%',
         flexDirection: 'row',
         justifyContent: 'space-around',
         alignItems: 'center',

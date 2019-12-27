@@ -42,11 +42,11 @@ class Collection extends React.Component{
         return(
             <View style = {styles.wrapper}>   
                     <Swiper 
-                        height = {200} 
+                        height = {250} 
                         loop={false}
                         loadMinimal = {false} 
                         style = {styles.body}
-                        dot={<View style={{backgroundColor: 'rgba(0,0,0,.2)', width: 5, height: 5, borderRadius: 4, marginLeft: 3, marginRight: 3, marginTop: 3, marginBottom: 3}} />}
+                        dot={<View style={{backgroundColor: 'rgba(0,0,0,.2)', width: 5, height: 5, borderRadius: 4, marginLeft: 3, marginRight: 3, marginTop: 5, marginBottom: 3}} />}
                         activeDot={<View style={{backgroundColor: '#000', width: 8, height: 8, borderRadius: 4, marginLeft: 3, marginRight: 3, marginTop: 3, marginBottom: 3}} />}
                         paginationStyle={{bottom: -1,}}
                     > 
@@ -75,10 +75,11 @@ export default Collection
 
 const styles = StyleSheet.create({
     wrapper :{
-       // backgroundColor : 'rgb(233,233,238)',
+      // backgroundColor : 'rgb(233,233,238)',
         shadowOpacity: 0.2,
         borderRadius: 3,
-       
+        
+      
     },
     textContainer:{
         justifyContent :'center', 

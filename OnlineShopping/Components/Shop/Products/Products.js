@@ -283,23 +283,26 @@ export default class Products extends Component {
     //this.listeningCategoryParam();
 
     return (
-      <SafeAreaView style={{ flex: 1, backgroundColor: 'rgb(57,62,66)' }}>
+      <SafeAreaView style={{ flex: 1, backgroundColor: 'transparent' }}>
         <View style={styles.header}>
+
           <SearchBar
-            //lightTheme
+            lightTheme={true}
             round
           
             inputStyle={{fontSize:16,color:'#fff'}}
             placeholder='Input text'
             placeholderTextColor='#fff'
             style={styles.SearchBar}
+            containerStyle={styles.SearchBar}
             clearIcon={true}
-            // platform='android'
+            platform='android'
             searchIcon={true} // You could have passed `null` too
             //onClear={someMethod}
             onChangeText={(searchbarTxt) => this.setState({ searchbarTxt })}
             onSubmitEditing={this.onSearchSubmmit.bind(this)}
             value={this.state.searchbarTxt}
+           
           />
 
           <View style={styles.categorySection}>
@@ -354,11 +357,11 @@ export default class Products extends Component {
 
 const styles = StyleSheet.create({
   header: {
-    flex: 2,
+  
     backgroundColor: 'rgb(233,233,238)'
   },
   SearchBar: {
-    backgroundColor: 'transparent',
+    backgroundColor: '#FF5722',
   },
   itemContainer: {
     paddingTop: '10%',
@@ -389,10 +392,10 @@ const styles = StyleSheet.create({
     backgroundColor: '#CCC'
   },
   imgItem: {
-    width: 140,///window.width/2-20,
+    width: 120,///window.width/2-20,
     height: 100,///window.height/2,
-
-    resizeMode: "stretch"
+    flex: 9,
+    resizeMode: "stretch",
   },
   page: {
     flexDirection: 'row',

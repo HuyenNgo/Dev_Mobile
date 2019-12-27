@@ -2,27 +2,34 @@ import getUrl from '../../Common/UrlConfig';
 import axios from 'axios';
 import {Alert } from 'react-native'
 
-export default createOrder =   (orderViewModel, listcart) =>{ 
+export default createOrder =  (orderViewModel, listcart) =>{ 
 
 let url = getUrl() + 'shoppingcart/createcart';
 
-    let params = {
-        orderViewModel: JSON.stringify(orderViewModel),
-        listcart: JSON.stringify(listcart),
+    let parameters = {
+        orderViewModel: orderViewModel,
+        listcart: listcart,
     }
     
-console.log(params);
- 
-return axios({
-        url: url,
-        method: 'post',
-        params: params,
-        headers: {
-        Accept: 'application/json',
-        'Content-Type': 'application/json',
-        }
-    })
-    .then(res => {
-        return res
-    });    
+
+console.log(url);
+//console.log(parameters);
+
+return axios.post(
+    url,
+    parameters
+).then(response=>{
+   console.log(response)
+   return response
+})
+
+// return  axios({
+//         url: url,
+//         method: 'post',
+//         data: (parameters),
+//         headers: {
+//         Accept: 'application/json',
+//         'Content-Type': 'application/json',
+//         }
+//     });    
 }

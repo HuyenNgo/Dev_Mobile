@@ -13,9 +13,9 @@ class CheckOrder extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            name: null,
-            phoneNumber: null,
-            address: null,
+            name: '',
+            phoneNumber: '',
+            address: '',
             phoneNumberValidate: false,
             price: 0,
             count: 0,
@@ -25,6 +25,8 @@ class CheckOrder extends Component {
     }
 
     componentWillMount() {
+        console.log(this.props.navigation.getParam('data'))
+        console.log('DATA')
         this.setState({
             data: this.props.navigation.getParam('data'),
             price: this.props.navigation.getParam('price'),
@@ -72,7 +74,8 @@ class CheckOrder extends Component {
     }
 
     sendData = () => {
-        let orderViewModel = {
+        console.log('begin')
+        const orderViewModel = {
             CustomerName: this.state.name,
             CustomerAddress: this.state.address,
             CustomerEmail: '',
@@ -83,22 +86,35 @@ class CheckOrder extends Component {
             Status: false,
             //   'card': this.state.data
         };
-        let listcart = [];
-        listcart.concat(this.state.data);
-        console.log(orderViewModel)
-        console.log(listcart)
+       
+        console.log('infoset')
+         console.log(this.state.data[0].Quantity)
+        let listcart= this.state.data?this.state.data.map(x=> {
+            let obj = {x}
+            obj.Content=''
+            obj.Quantity = obj.Quantity || 1
+            return obj
+        }):[]
+      //  console.log(orderViewModel)
+      console.log('afterConvert')
+        console.log(listcart[0].Quantity)
+
+        let component = this
+
         createOrder(orderViewModel, listcart)
             .then(resJSON => {
-                //console.log(resJSON.data.status);
-                if (resJSON.data.status == true) {
-                    this.setState({
+                console.log(resJSON.data);
+                console.log('recieve data.................');
+                if (resJSON.data.status == false) {
+                    console.log('true')
+                    component.setState({
                         data: []
                     },
                         () => {
 
                             Alert.alert(
                                 'Annoucement',
-                                'Your Order is successful',
+                                resJSON.data.message ? resJSON.data.message : 'Your Order is successful',
                                 [
                                     {
                                         text: 'OK', onPress: () => {
@@ -113,15 +129,17 @@ class CheckOrder extends Component {
                         })
 
                 } else {
+                
+
                     Alert.alert(
                         'Annoucement',
                         resJSON.data.message ? resJSON.data.message : 'Your Order is unsuccessful',
-                        // [                         
-                        //   {text: 'OK', onPress: () => {
-                        //     saveCart(this.state.data);
-                        //     this.props.navigation.pop();
-                        //   }},
-                        // ],
+                        [                         
+                          {text: 'OK', onPress: () => {
+                            saveCart(this.state.data);
+                            this.props.navigation.pop();
+                          }},
+                        ],
                         { cancelable: true }
                     )
                 }
@@ -131,6 +149,22 @@ class CheckOrder extends Component {
 
             });
     }
+    // sendData = () => 
+    // {
+    //     Alert.alert(
+    //         'Annoucement',
+    //         'Your Order is successful',
+    //         [
+    //             {
+    //                 text: 'OK', onPress: () => {
+    //                     saveCart(this.state.data);
+    //                     this.props.navigation.pop();
+    //                 }
+    //             },
+    //         ],
+    //         { cancelable: false }
+    //     )
+    // }
 
     renderItem = ({ item }) => {
         return (
@@ -155,9 +189,9 @@ class CheckOrder extends Component {
                         />
                     </View>
                     <View style={styles.ItemInfo}>
-                        <View />
-                        <View style={styles.nameHost}>
-                            <Text style={{ fontWeight: 'bold', fontSize: 15, }}>
+                      
+                        <View style={{width:200}}>
+                            <Text style={{ fontWeight: 'bold', fontSize: 15,lineHeight:20 }}>
                                 {item.Name}
                             </Text>
                         </View>
@@ -392,7 +426,7 @@ const styles = StyleSheet.create({
     },
     ItemInfo: {
         flexDirection: 'column',
-        justifyContent: 'space-around',
+        //justifyContent: 'space-around',
         paddingLeft: '3%',
        
     },

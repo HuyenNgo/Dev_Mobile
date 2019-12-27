@@ -32,8 +32,8 @@ const HomeStack = createStackNavigator({
             title: "Thông tin chi tiết sản phẩm",
 
             headerTitleStyle: {
-                color: '#000',
-                fontSize: 20,
+                color: '#fff',
+                fontSize: 18,
 
                 fontWeight: 'normal',
                 // alignItems: 'center',
@@ -41,7 +41,7 @@ const HomeStack = createStackNavigator({
 
             },
             headerStyle: {
-                backgroundColor: '#fff',
+                backgroundColor: '#FF5722',
 
             },
 
@@ -63,7 +63,7 @@ const CategoryStack = createStackNavigator({
             title: "Thông tin chi tiết sản phẩm",
 
             headerTitleStyle: {
-                color: 'black',
+                color: '#fff',
                 fontSize: 20,
 
                 fontWeight: 'normal',
@@ -72,7 +72,7 @@ const CategoryStack = createStackNavigator({
 
             },
             headerStyle: {
-                backgroundColor: '#fff',
+                backgroundColor: '#FF5722',
 
             },
 
@@ -92,7 +92,7 @@ const ProductStack = createStackNavigator({
             title: "Thông tin chi tiết sản phẩm",
 
             headerTitleStyle: {
-                color: 'black',
+                color: '#fff',
                 fontSize: 20,
 
                 fontWeight: 'normal',
@@ -101,7 +101,7 @@ const ProductStack = createStackNavigator({
 
             },
             headerStyle: {
-                backgroundColor: '#fff',
+                backgroundColor: '#FF5722',
 
             },
 
@@ -116,7 +116,7 @@ const ProductStack = createStackNavigator({
             title: "Kết quả tìm kiếm",
 
             headerTitleStyle: {
-                color: 'black',
+                color: '#fff',
                 fontSize: 20,
 
                 fontWeight: 'normal',
@@ -125,7 +125,7 @@ const ProductStack = createStackNavigator({
 
             },
             headerStyle: {
-                backgroundColor: '#fff',
+                backgroundColor: '#FF5722',
 
             },
 
@@ -152,7 +152,7 @@ const CartStack = createStackNavigator({
             title: "Đặt hàng",
                 
             headerTitleStyle: {
-                color: '#000',
+                color: '#fff',
                 fontSize: 20,
 
                 fontWeight: 'normal',
@@ -162,7 +162,7 @@ const CartStack = createStackNavigator({
             },
            
             headerStyle: {
-                backgroundColor: '#fff',
+                backgroundColor: '#FF5722',
                 borderColor: '#CCCCCC',
                 borderBottomWidth:1,
                 color:'#fff'

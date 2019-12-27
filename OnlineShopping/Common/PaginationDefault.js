@@ -1,3 +1,3 @@
 export function pageSizeDefault() {
-    return 5;
+    return 4;
 }

@@ -140,7 +140,7 @@ class CategoryDetail extends React.PureComponent {
                             />
                         </View>
 
-                        <View style={styles.body}>
+                        {/* //<View style={styles.body}> */}
                             <FlatList
                                 style={styles.listStyle}
                                 refreshControl={
@@ -152,10 +152,10 @@ class CategoryDetail extends React.PureComponent {
                                 data={this.state.data}
                                 keyExtractor={(item, index) => index.toString()}
                                 renderItem={this.renderItem}
-                                horizontal={false}
+                             
                                 numColumns={2}
                             />
-                        </View>
+                        
                     </View>
                 </SafeAreaView>
             );
@@ -168,13 +168,15 @@ const styles = StyleSheet.create({
     wrapper: {
 
         backgroundColor: '#E9E9EE',
-        // marginBottom:70,
+         marginBottom:10,
+         flexDirection:'column'
     },
     textContainer: {
         justifyContent: 'center',
         alignItems: 'center',
-        borderBottomColor: '#868686',
+        borderBottomColor: '#DFE2E5',
         borderBottomWidth: 1,
+        backgroundColor:'#FF5722',
         height: 60,
         marginBottom: 5,
         // paddingTop: Platform.OS === 'ios' ? 0 : 50,
@@ -190,8 +192,9 @@ const styles = StyleSheet.create({
     body: {
         flexDirection: 'column',
         //justifyContent: 'space-around',
-        alignItems: 'stretch',//stretch,//baseline
-        // flexWrap: 'wrap',
+        //alignItems: 'stretch',//stretch,//baseline
+         flexWrap: 'wrap',
+        // height:450,
         shadowColor: '#2E272B',
         shadowOffset: {
             width: 0,
@@ -200,14 +203,14 @@ const styles = StyleSheet.create({
     },
     textTopProduct: {
         fontSize: 20,
-        color: 'black',
+        color: '#fff',
        
       
 
     },
     nodatastyle: {
         justifyContent: 'center',
-        flex: 1,
+     //   flex: 1,
         alignItems: 'center',
     },
     listStyle: {

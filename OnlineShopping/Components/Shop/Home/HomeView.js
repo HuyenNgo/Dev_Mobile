@@ -67,13 +67,14 @@ export default class Home extends Component {
             >
                 <Header
                     placement="left"
-                    leftComponent={<MIcon name='menu' onPress={() => { this.openControlPanel() }} style={{ color: 'white' }} size={25} />}
-                    centerComponent={{ text: 'HOME', style: { color: '#fff' } }}
-                    rightComponent={{ icon: 'home', color: '#fff' }}
-                    backgroundColor='black'
+                    leftComponent={<MIcon name='menu' onPress={() => { this.openControlPanel() }} style={{ color: 'white',paddingBottom:'5%'  }} size={25} />}
+                    centerComponent={{ text: 'HOME', style: { color: '#fff',paddingBottom:'5%',marginLeft:100 ,fontSize:18} }}
+                    
+                    backgroundColor='#FF5722'
+                    containerStyle={{height:80,}}
                 />
               
-                <SafeAreaView style={{ flex: 1, backgroundColor: 'transparent', paddingTop: '5%' }}>
+                <SafeAreaView style={{ flex: 1, backgroundColor: 'transparent', paddingTop: '1%' }}>
                     <ScrollView
                         refreshControl={
                             <RefreshControl
