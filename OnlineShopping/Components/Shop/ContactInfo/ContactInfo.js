@@ -1,11 +1,11 @@
 
 import call from 'react-native-phone-call'
-import React, {Component} from 'react';
-import {Linking, Alert, AppRegistry,Platform, StyleSheet, Text, View,Dimensions} from 'react-native';
+import React, { Component } from 'react';
+import { Linking, Alert, AppRegistry, Platform, StyleSheet, Text, View, Dimensions, ImageBackground } from 'react-native';
 //import MapView from 'react-native-maps';
 //import { Marker } from 'react-native-maps';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import { Button,Header } from 'react-native-elements';
+import { Button, Header } from 'react-native-elements';
 
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
@@ -20,19 +20,19 @@ const args = {
   prompt: false // Optional boolean property. Determines if the user should be prompt prior to the call 
 }
 
-const {width} = Dimensions.get('window')
+const { width } = Dimensions.get('window')
 const screen = require('Dimensions');
 const window = screen.get('window');
 
 
 export default class App extends Component {
 
-  
 
-  constructor(props){
+
+  constructor(props) {
     super(props);
-    this.state={
-      region:{
+    this.state = {
+      region: {
         latitude: 10.870555,
         longitude: 106.802781,
         latitudeDelta: 0.05,
@@ -44,15 +44,15 @@ export default class App extends Component {
 
   render() {
     return (
-      <View style={{backgroundColor:'#E9E9EF'}} >
-          <Header         
-                        placement="center"  
-                        centerComponent={{ text: 'Contact Us', style: { color: '#fff',marginBottom:15,fontSize:20} }}
-                        backgroundColor='#FF5722'
-                        containerStyle={{height:70,}}
-                    />
+      <View style={{ backgroundColor: '#E9E9EF' }} >
+        <Header
+          placement="center"
+          centerComponent={{ text: 'Contact Us', style: { color: '#fff', marginBottom: 15, fontSize: 20 } }}
+          backgroundColor='#FF5722'
+          containerStyle={{ height: 70, }}
+        />
 
-          {/* <View
+        {/* <View
             style={{
               borderBottomColor: 'white',
               borderBottomWidth: 5,
@@ -61,76 +61,80 @@ export default class App extends Component {
             }}
           /> */}
 
-          {/* <MapView
+        {/* <MapView
             style={{flex:0.9}}
             region={this.state.region}
           >
             <MapView.Marker title={'This Is Our Shop'} coordinate = {this.state.region}/>
           </MapView> */}
-          <View style={styles.instructions} >
 
-          <View
-            style={{
-              borderBottomColor: 'black',
-              borderBottomWidth: 10,
-            }}
-          />
 
-          <Button
- 
-          icon={{name: 'home', size: 30}}
 
-          buttonStyle={{backgroundColor: '#22A5F1', marginBottom:10,borderRadius: 0,width: width, flexWrap: 'wrap'}}
+        <ImageBackground
+          //We are showing the Image from online
+          source={{ uri: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRODJUEbjOpB-lRGRC9ca2FYaMy-92lGqggAE5yT6UDt2cmHA9nxg&s', }}
 
-          textStyle={{textAlign: 'right'}}
-          onPress={() =>Linking.openURL('https://www.google.com/maps/place/Tr%C6%B0%E1%BB%9Dng+%C4%90%E1%BA%A1i+h%E1%BB%8Dc+C%C3%B4ng+ngh%E1%BB%87+Th%C3%B4ng+tin+%C4%90HQG-HCM/@10.8686102,106.7979616,17z/data=!4m13!1m7!3m6!1s0x31752766e791a68d:0xe4f6a1ac07ae6952!2zNTEgxJDGsOG7nW5nIHPhu5EgMTgsIFBoxrDhu51uZyBMaW5oIFRydW5nLCBUaOG7pyDEkOG7qWMsIEjhu5MgQ2jDrSBNaW5oLCBWaeG7h3QgTmFt!3b1!8m2!3d10.8644167!4d106.7906767!3m4!1s0x317527587e9ad5bf:0xafa66f9c8be3c91!8m2!3d10.8702111!4d106.8028928')}
-          title={`Quarter 6, Linh Trung ward, Thu Duc district`}
-          type="clear" 
-        />
-   
-          <View
-            style={{
-              borderBottomColor: 'black',
-              borderBottomWidth: 1,
-            }}
-          />
+          //You can also show the image from you project directory like below
+          // source={require("./../../../../assets/icons8-marker-25")}
 
-          <Button
+          //Image Style
+          style={{ width: '100%', height: '95%', resizeMode: "stretch", }}
+        >
+          <View style={{flexDirection:'column',justifyContent:'flex-end',marginTop:350}}> 
+            <Button
 
-          icon={{name: 'phone', size: 30}}
+              icon={{ name: 'home', size: 30 }}
 
-          buttonStyle={{backgroundColor: '#22A5F1', marginBottom:10,borderRadius: 0,width: width, flexWrap: 'wrap'}}
+              buttonStyle={{ backgroundColor: '#22A5F1', marginBottom: 10, borderRadius: 0, width: width, flexWrap: 'wrap' }}
 
-          textStyle={{textAlign: 'right'}}
-          onPress={() => {
-                        call(args).catch(console.error);
-                    }}
-          title={`016520543`}
-          />
+              textStyle={{ textAlign: 'right' }}
+              onPress={() => Linking.openURL('https://www.google.com/maps/place/Tr%C6%B0%E1%BB%9Dng+%C4%90%E1%BA%A1i+h%E1%BB%8Dc+C%C3%B4ng+ngh%E1%BB%87+Th%C3%B4ng+tin+%C4%90HQG-HCM/@10.8686102,106.7979616,17z/data=!4m13!1m7!3m6!1s0x31752766e791a68d:0xe4f6a1ac07ae6952!2zNTEgxJDGsOG7nW5nIHPhu5EgMTgsIFBoxrDhu51uZyBMaW5oIFRydW5nLCBUaOG7pyDEkOG7qWMsIEjhu5MgQ2jDrSBNaW5oLCBWaeG7h3QgTmFt!3b1!8m2!3d10.8644167!4d106.7906767!3m4!1s0x317527587e9ad5bf:0xafa66f9c8be3c91!8m2!3d10.8702111!4d106.8028928')}
+              title={`Quarter 6, Linh Trung ward, Thu Duc district`}
+              type="clear"
+            />
+            <Button
 
-          <View
-            style={{
-              borderBottomColor: 'black',
-              borderBottomWidth: 1,
-            }}
-          />
+              icon={{ name: 'phone', size: 30 }}
 
-          <Button
-    
-          icon={{name: 'mail', size: 30}}
+              buttonStyle={{ backgroundColor: '#22A5F1', marginBottom: 10, borderRadius: 0, width: width, flexWrap: 'wrap' }}
 
-          buttonStyle={{backgroundColor: '#22A5F1',marginBottom:10, borderRadius: 0,width: width, flexWrap: 'wrap'}}
+              textStyle={{ textAlign: 'right' }}
+              onPress={() => {
+                call(args).catch(console.error);
+              }}
+              title={`016520543`}
+            />
+            <Button
 
-          textStyle={{textAlign: 'right'}}
-          onPress={() => Linking.openURL('mailto:16520543@gm.uit.edu.vn')}
-          title={`165205430@gm.uit.edu.vn`}
-        />
+              icon={{ name: 'mail', size: 30 }}
 
+              buttonStyle={{ backgroundColor: '#22A5F1', marginBottom: 10, borderRadius: 0, width: width, flexWrap: 'wrap' }}
+
+              textStyle={{ textAlign: 'right' }}
+              onPress={() => Linking.openURL('mailto:16520543@gm.uit.edu.vn')}
+              title={`165205430@gm.uit.edu.vn`}
+            />
 
           </View>
+        </ImageBackground>
+
+
+
+
+
+        {/* <View
+            style={{
+              borderBottomColor: 'black',
+              borderBottomWidth: 1,
+            }}
+          /> */}
+
+
+
+
       </View>
-        
-              
+
+
     );
   }
 }
@@ -153,26 +157,26 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     textAlign: 'left',
     color: '#333333',
-    marginLeft:5,
-    marginRight:5,
-    paddingTop:'10%',
-    padding:'5%'
+    marginLeft: 5,
+    marginRight: 5,
+    paddingTop: '10%',
+    padding: '5%'
   },
-  bottomView:{
-    width: '100%', 
-    height: 70, 
-    backgroundColor: '#FF9800', 
-    justifyContent: 'center', 
+  bottomView: {
+    width: '100%',
+    height: 70,
+    backgroundColor: '#FF9800',
+    justifyContent: 'center',
     alignItems: 'center',
     position: 'absolute',
     bottom: 0
   },
-  buttonStyle:{
+  buttonStyle: {
     backgroundColor: "#ff4f00",
-    width:window.width-10,
-    height:60,
-    justifyContent:"center",
-    marginLeft:5,
+    width: window.width - 10,
+    height: 60,
+    justifyContent: "center",
+    marginLeft: 5,
     borderColor: "transparent",
     borderWidth: 0,
     borderRadius: 5
