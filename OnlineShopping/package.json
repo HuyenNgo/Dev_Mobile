@@ -10,7 +10,7 @@
     "@babel/cli": "7.0.0",
     "@babel/core": "7.0.0",
     "@babel/runtime": "7.0.0",
-    "axios": "^0.18.0",
+    "axios": "^0.21.1",
     "native-base": "^2.13.8",
     "qs": "^6.9.1",
     "react-native": "^0.57.8",
