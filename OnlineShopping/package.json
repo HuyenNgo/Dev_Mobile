@@ -12,7 +12,7 @@
     "@babel/runtime": "7.0.0",
     "axios": "^0.18.0",
     "native-base": "^2.13.8",
-    "qs": "^6.9.1",
+    "qs": "^6.5.3",
     "react-native": "^0.57.8",
     "react-native-autogrow-textinput": "^5.2.0",
     "react-native-drawer": "^2.5.1",
